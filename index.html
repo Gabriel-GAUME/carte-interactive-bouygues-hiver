@@ -201,6 +201,20 @@
             background: #D9642D
         }
 
+        .zone .zone-fill {
+            fill: #6FBDD7;
+            transition: fill 0.25s ease;
+        }
+
+        .zone:hover .zone-fill {
+            fill: #489BB6;
+            cursor: pointer;
+        }
+
+        .zone {
+            cursor: pointer;
+        }
+
         @media(max-width:1024px) {
             .map {
                 display: none
@@ -234,13 +248,16 @@
         <div class="list-container">
             <div class="filters"><span class="filter-title">Massifs montagneux</span>
                 <div class="zoom-buttons fitlers-list">
-                    <button class="filter-button zoom-button active" onclick="zoomTo('reset', this)">Tous</button>
-                    <button class="filter-button zoom-button" onclick="zoomTo('AN', this)">Alpes du Nord</button>
-                    <button class="filter-button zoom-button" onclick="zoomTo('AS', this)">Alpes du Sud</button>
-                    <button class="filter-button zoom-button" onclick="zoomTo('JU', this)">Jura</button>
-                    <button class="filter-button zoom-button" onclick="zoomTo('VO', this)">Les Vosges</button>
-                    <button class="filter-button zoom-button" onclick="zoomTo('MC', this)">Massif central</button>
-                    <button class="filter-button zoom-button" onclick="zoomTo('PY', this)">Pyrénées</button>
+                    <button class="filter-button zoom-button active" id="reset"
+                        onclick="zoomTo('reset', this)">Tous</button>
+                    <button class="filter-button zoom-button" id="AN" onclick="zoomTo('AN', this)">Alpes du
+                        Nord</button>
+                    <button class="filter-button zoom-button" id="AS" onclick="zoomTo('AS', this)">Alpes du Sud</button>
+                    <button class="filter-button zoom-button" id="JU" onclick="zoomTo('JU', this)">Jura</button>
+                    <button class="filter-button zoom-button" id="VO" onclick="zoomTo('VO', this)">Les Vosges</button>
+                    <button class="filter-button zoom-button" id="MC" onclick="zoomTo('MC', this)">Massif
+                        central</button>
+                    <button class="filter-button zoom-button" id="PY" onclick="zoomTo('PY', this)">Pyrénées</button>
                 </div>
 
             </div>
@@ -1380,7 +1397,7 @@
                     </li>
 
                     <li class="element" data-ville="Val d'Isere" data-region="AN">
-                        <span class="element-title">Val d'Isere</span>
+                        <span class="element-title">Val d'Isère</span>
                         <span class="element-subtitle">Alpes du Nord (73)</span>
                     </li>
 
@@ -1400,7 +1417,7 @@
                     </li>
 
                     <li class="element" data-ville="Valfrejus" data-region="AN">
-                        <span class="element-title">Valfrejus</span>
+                        <span class="element-title">Valfréjus</span>
                         <span class="element-subtitle">Alpes du Nord (73)</span>
                     </li>
 
@@ -1549,1308 +1566,1386 @@
                 fill="white" />
 
             <g class="ville" data-ville="Abondance" data-region="AN" transform="translate(518.605 318.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Agy Espace Nordique" data-region="AN" transform="translate(516.605 323.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Aiguille du Midi" data-region="AN" transform="translate(526.605 335.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Aillons-Margeriaz 1400" data-region="AN"
                 transform="translate(497.605 350.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Aillons-Margeriaz 1000" data-region="AN"
                 transform="translate(501.605 353.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Alpe d'Huez 1860" data-region="AN" transform="translate(498.605 377.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Alpe du Grand Serre" data-region="AN" transform="translate(493.605 383.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Alti Aigoual / Prat-Peyrot" data-region="MC"
                 transform="translate(396.605 425.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Ancelle" data-region="AS" transform="translate(504.605 401.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Arc 1600" data-region="AN" transform="translate(522.605 354.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Arc 1800" data-region="AN" transform="translate(519.605 357.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Arc 1950" data-region="AN" transform="translate(523.605 358.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Arc 2000" data-region="AN" transform="translate(520.605 361.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Areches-Beaufort" data-region="AN" transform="translate(513.605 352.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Auris en Oisans 1600" data-region="AN" transform="translate(501.605 380.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Auron" data-region="AS" transform="translate(531.605 429.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Aussois" data-region="AN" transform="translate(524.605 343.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Avoriaz" data-region="AN" transform="translate(520.605 325.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Ax 3 Domaines" data-region="PY" transform="translate(327.605 499.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Ax-les-Thermes 720" data-region="PY" transform="translate(330.605 502.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Ballon d'Alsace" data-region="VO" transform="translate(533.605 241.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Bernex" data-region="AN" transform="translate(520.605 316.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Bessans" data-region="AN" transform="translate(532.605 367.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Beuil 1500" data-region="AS" transform="translate(533.605 435.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Bisanne 1500" data-region="AN" transform="translate(509.605 350.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Bonneval sur Arc" data-region="AN" transform="translate(531.605 361.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Brevent" data-region="AN" transform="translate(523.605 337.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Briancon" data-region="AS" transform="translate(519.605 390.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Brides les Bains 600" data-region="AN" transform="translate(514.605 364.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Cambre d'Aze" data-region="PY" transform="translate(337.605 515.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="CDS Le Pont du Metty" data-region="VO" transform="translate(529.605 239.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Champagny-en-Vanoise" data-region="AN" transform="translate(524.605 364.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Chamrousse 1400 - Casserousse" data-region="AN"
                 transform="translate(492.605 379.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Chamrousse 1650 - Recoin" data-region="AN"
                 transform="translate(494.605 375.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Chamrousse 1700" data-region="AN" transform="translate(488.605 378.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Chamrousse 1750 Roche Beranger" data-region="AN"
                 transform="translate(490.605 374.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Chamrousse 2250" data-region="AN" transform="translate(485.605 374.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Chantemerle" data-region="AS" transform="translate(516.605 387.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Chatel" data-region="AN" transform="translate(521.605 321.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Cohennoz - Le Cernix" data-region="AN" transform="translate(513.605 347.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Col de Marcieu" data-region="AN" transform="translate(493.605 365.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Col de Rousset" data-region="AN" transform="translate(475.605 396.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Combloux" data-region="AN" transform="translate(517.605 338.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Cordon" data-region="AN" transform="translate(510.605 339.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Courchevel - Le Praz 1300" data-region="AN"
                 transform="translate(515.605 361.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Courchevel - Moriond 1650" data-region="AN"
                 transform="translate(514.605 357.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Courchevel - Village 1550" data-region="AN"
                 transform="translate(510.605 358.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Courchevel 1850" data-region="AN" transform="translate(510.605 362.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Crest Voland 1230" data-region="AN" transform="translate(515.605 344.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Domaine Alpin Annecy" data-region="AN" transform="translate(501.605 340.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine Alpin Bauges" data-region="AN" transform="translate(500.605 353.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine Alpin Les Brasses" data-region="AN"
                 transform="translate(510.605 322.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine Alpin Secteur Feclaz" data-region="AN"
                 transform="translate(492.605 352.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine Alpin Secteur Revard" data-region="AN"
                 transform="translate(496.605 353.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine de Balme" data-region="AN" transform="translate(524.605 331.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine de Lans en Vercors" data-region="AN"
                 transform="translate(482.605 381.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine du Cret" data-region="AN" transform="translate(504.605 325.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine Grand Montgenevre" data-region="AS"
                 transform="translate(520.605 386.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine Molines - Saint-Veran" data-region="AS"
                 transform="translate(531.605 402.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Domaine ski alpin Autrans" data-region="AN"
                 transform="translate(481.605 377.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine ski alpin Meaudre" data-region="AN"
                 transform="translate(480.605 373.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine skiable - La Colmiane" data-region="AS"
                 transform="translate(541.605 437.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine skiable d'Abries" data-region="AS"
                 transform="translate(528.605 396.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine skiable d'Albiez" data-region="AN"
                 transform="translate(508.605 375.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine skiable de Cauterets" data-region="PY"
                 transform="translate(259.605 490.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine skiable de Ceillac" data-region="AS"
                 transform="translate(525.605 405.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine Skiable de Gerardmer" data-region="VO"
                 transform="translate(526.605 220.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine skiable de Puyvalador" data-region="PY"
                 transform="translate(339.605 506.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Domaine skiable Morzine" data-region="AN"
                 transform="translate(520.605 329.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Espace Alpin Bellefontaine" data-region="JU"
                 transform="translate(490.605 303.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Espace Barioz" data-region="AN" transform="translate(496.605 367.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Espace Ludique d'Aiguilles" data-region="AS"
                 transform="translate(527.605 400.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Espace Ludique Les Marmousets" data-region="JU"
                 transform="translate(495.605 305.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Espace Villard-Correncon" data-region="AN"
                 transform="translate(481.605 387.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Flaine 1600" data-region="AN" transform="translate(517.605 332.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Flegere" data-region="AN" transform="translate(520.605 334.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Flumet - Les Evettes 1030" data-region="AN"
                 transform="translate(518.605 347.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Flumet - Les Seigneurs 1000" data-region="AN"
                 transform="translate(517.605 350.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Foncine-le-Haut" data-region="JU" transform="translate(493.605 295.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Font Romeu 1775" data-region="PY" transform="translate(333.605 512.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Formigueres" data-region="PY" transform="translate(337.605 509.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Glacier des Bossons" data-region="AN" transform="translate(528.605 341.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Goulier-Neige" data-region="PY" transform="translate(317.605 498.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Grands Montets - Argentiere" data-region="AN"
                 transform="translate(530.605 337.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Granier-sur-Aime" data-region="AN" transform="translate(508.605 354.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Greolieres-les-neiges" data-region="AS" transform="translate(532.605 441.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Gresse en Vercors" data-region="AN" transform="translate(482.605 393.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Guzet" data-region="PY" transform="translate(307.605 493.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Hauteluce Les Pres" data-region="AN" transform="translate(522.605 347.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Hauteluce Village 1150" data-region="AN"
                 transform="translate(519.605 343.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Hery-sur-Ugine - Les Rafforts" data-region="AN"
                 transform="translate(514.605 341.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Hirmentaz" data-region="AN" transform="translate(511.605 318.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Huez 1500" data-region="AN" transform="translate(504.605 376.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Isola 2000" data-region="AS" transform="translate(535.605 428.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Bresse - Hohneck" data-region="VO" transform="translate(533.605 220.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Bresse-Brabant" data-region="VO" transform="translate(530.605 225.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Cernay Blanche - La Chaux" data-region="JU"
                 transform="translate(510.605 282.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Chapelle d'Abondance" data-region="AN"
                 transform="translate(515.605 314.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Clusaz" data-region="AN" transform="translate(506.605 336.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Croisette" data-region="AN" transform="translate(510.605 343.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Dole - Les Tuffes" data-region="JU" transform="translate(492.605 310.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Giettaz" data-region="AN" transform="translate(506.605 340.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Goule/Mont Miroir" data-region="JU" transform="translate(527.605 264.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Loge des Gardes" data-region="MC" transform="translate(408.605 329.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Mongie" data-region="PY" transform="translate(271.605 488.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Norma" data-region="AN" transform="translate(520.605 376.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Plagne Bellecote 1930" data-region="AN"
                 transform="translate(519.605 366.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Planche des Belles Filles" data-region="VO"
                 transform="translate(527.605 245.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Rosiere" data-region="AN" transform="translate(517.605 354.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="La Serra" data-region="JU" transform="translate(486.605 310.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Tania 1400" data-region="AN" transform="translate(515.605 369.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="La Toussuire 1750" data-region="AN" transform="translate(513.605 373.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Lajoux" data-region="JU" transform="translate(485.605 313.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Champ du Feu" data-region="VO" transform="translate(544.605 204.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Collet" data-region="AN" transform="translate(491.605 392.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Corbier 1550" data-region="AN" transform="translate(500.605 373.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Desert d'Entremont" data-region="AN" transform="translate(489.605 360.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Frenz" data-region="VO" transform="translate(533.605 230.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Grand-Bornand" data-region="AN" transform="translate(510.605 335.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Le Grand-Puy" data-region="AS" transform="translate(510.605 426.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Granier" data-region="AN" transform="translate(494.605 361.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Jaillet" data-region="AN" transform="translate(507.605 347.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Manon" data-region="JU" transform="translate(481.605 310.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Monetier les Bains" data-region="AS" transform="translate(513.605 383.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Mont Dore - Les Longes 1200" data-region="MC"
                 transform="translate(378.605 358.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Noirmont" data-region="JU" transform="translate(529.605 269.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Pleynet 1450" data-region="AN" transform="translate(497.605 372.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Sauze - Supersauze" data-region="AS" transform="translate(525.605 425.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Schlumpf" data-region="VO" transform="translate(538.605 245.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Le Tourchet" data-region="AN" transform="translate(521.605 342.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Le Valtin Hautes-Navieres" data-region="VO"
                 transform="translate(537.605 216.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Angles" data-region="PY" transform="translate(341.605 510.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Bottieres 1300" data-region="AN" transform="translate(504.605 371.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Carroz 1200-1500" data-region="AN" transform="translate(514.605 336.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Contamines Montjoie" data-region="AN"
                 transform="translate(522.605 351.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Deux Alpes" data-region="AN" transform="translate(500.605 384.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Gentianes" data-region="JU" transform="translate(486.605 303.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Gets" data-region="AN" transform="translate(514.605 320.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Haberes" data-region="AN" transform="translate(508.605 319.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Les Houches" data-region="AN" transform="translate(524.605 351.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Karellis" data-region="AN" transform="translate(517.605 373.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Menuires" data-region="AN" transform="translate(512.605 370.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Monts d'Olmes" data-region="PY" transform="translate(323.605 489.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Orres" data-region="AS" transform="translate(520.605 411.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Planards" data-region="AN" transform="translate(526.605 339.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Plans d'Hotonnes" data-region="JU" transform="translate(485.605 329.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Les Saisies 1650" data-region="AN" transform="translate(510.605 346.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Luchon - Superbagneres" data-region="PY"
                 transform="translate(284.605 493.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Lullin - Col du Feu" data-region="AN" transform="translate(510.605 315.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Manigod" data-region="AN" transform="translate(497.605 338.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Marcinelle en Montagne" data-region="AN"
                 transform="translate(504.605 344.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Maronne 1450" data-region="AN" transform="translate(505.605 383.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Megeve" data-region="AN" transform="translate(512.605 348.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Meribel" data-region="AN" transform="translate(511.605 366.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Metabief" data-region="JU" transform="translate(505.605 291.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Montchavin - Les Coches" data-region="AN"
                 transform="translate(517.605 361.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Montclar les 2 Vallees" data-region="AS"
                 transform="translate(509.605 416.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Montenvers - Mer de Glace" data-region="AN"
                 transform="translate(527.605 336.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Mont-Saxonnex" data-region="AN" transform="translate(512.605 329.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Morillon" data-region="AN" transform="translate(517.605 327.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Nevache Vallee de la Claree" data-region="AS"
                 transform="translate(517.605 383.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Notre Dame de Bellecombe 1150" data-region="AN"
                 transform="translate(515.605 351.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Notre Dame de Bellecombe 1350" data-region="AN"
                 transform="translate(514.605 350.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Notre-Dame-de-Vaulx" data-region="AN" transform="translate(487.605 385.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Orcieres - Merlettes 1850" data-region="AS"
                 transform="translate(510.605 401.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Orelle Val-Thorens" data-region="AN" transform="translate(520.605 370.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Oz en Oisans 1350" data-region="AN" transform="translate(495.605 379.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Passy Plaine-Joux" data-region="AN" transform="translate(522.605 339.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Peyragudes" data-region="PY" transform="translate(279.605 491.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Pipay 1550" data-region="AN" transform="translate(500.605 376.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Plagne Centre-Plagne Aime 2000" data-region="AN"
                 transform="translate(507.605 372.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Plagne Montalbert 1350" data-region="AN"
                 transform="translate(503.605 371.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Plan Bouchet 2350" data-region="AN" transform="translate(515.605 375.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Pra Loup - Molanes 1500" data-region="AS"
                 transform="translate(520.605 423.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Pra Loup 1600" data-region="AS" transform="translate(517.605 421.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Pralognan la Vanoise" data-region="AN" transform="translate(526.605 366.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Prapoutel 1350" data-region="AN" transform="translate(498.605 378.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Praz sur Arly 1035" data-region="AN" transform="translate(511.605 343.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Puy-Saint-Vincent" data-region="AS" transform="translate(511.605 392.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Pyrenees 2000 - Superbolquere" data-region="PY"
                 transform="translate(336.605 512.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Risoul 1850" data-region="AS" transform="translate(521.605 407.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Roc d'Enfer - St Jean d'Aulps" data-region="AN"
                 transform="translate(517.605 319.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Romme Alpin" data-region="AN" transform="translate(514.605 325.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint Jean d'Arves 1550" data-region="AN"
                 transform="translate(504.605 376.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint Nicolas de Veroce" data-region="AN"
                 transform="translate(521.605 342.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint Nizier du Moucherotte" data-region="AN"
                 transform="translate(483.605 377.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint Sorlin d'Arves 1600" data-region="AN"
                 transform="translate(503.605 379.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Sainte Foy Tarentaise" data-region="AN" transform="translate(527.605 354.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint-Gervais Mont-Blanc" data-region="AN"
                 transform="translate(520.605 342.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Saint-Lary 1700" data-region="PY" transform="translate(274.605 491.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint-Lary 1900" data-region="PY" transform="translate(275.605 489.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint-Lary 2400" data-region="PY" transform="translate(270.605 492.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint-Lary 830" data-region="PY" transform="translate(276.605 494.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint-Leger-les-Melezes" data-region="AS"
                 transform="translate(504.605 399.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint-Martin de Belleville" data-region="AN"
                 transform="translate(510.605 365.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Saint-Michel-de-Chaillol" data-region="AS"
                 transform="translate(501.605 398.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Samoens" data-region="AN" transform="translate(517.605 330.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Serre-Eyraud" data-region="AS" transform="translate(508.605 400.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Site Alpin de Terre Ronde" data-region="JU"
                 transform="translate(481.605 333.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Site de Lelex - Crozet" data-region="JU"
                 transform="translate(490.605 318.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Site de Mijoux - La Faucille" data-region="JU"
                 transform="translate(493.605 314.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Ski Club Pierrefontaine-les-Varans" data-region="JU"
                 transform="translate(517.605 271.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Sommand Mieussy" data-region="AN" transform="translate(513.605 322.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Soulan 1280" data-region="PY" transform="translate(303.605 489.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="St Colomban des Villards 1100" data-region="AN"
                 transform="translate(508.605 372.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Stade de ski de la Poya" data-region="AN"
                 transform="translate(526.605 332.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Stade Biathlon Florence Baverel" data-region="JU"
                 transform="translate(508.605 285.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station d'Arvieux en Queyras" data-region="AS"
                 transform="translate(522.605 396.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station de Chabanon" data-region="AS" transform="translate(506.605 421.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Station de Laye" data-region="AS" transform="translate(497.605 402.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station de Montmin" data-region="AN" transform="translate(499.605 345.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station de Pelvoux-Vallouise" data-region="AS"
                 transform="translate(511.605 389.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station de Piau-Engaly" data-region="PY"
                 transform="translate(270.605 494.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station de Reallon" data-region="AS" transform="translate(511.605 408.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station de ski La Quillane" data-region="PY"
                 transform="translate(342.605 514.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station de ski Larcenaire" data-region="VO"
                 transform="translate(528.605 230.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station de ski Xonrupt-Le Poli" data-region="VO"
                 transform="translate(530.605 217.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station de Valdrome" data-region="AS" transform="translate(478.605 409.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station du Lac Blanc" data-region="VO" transform="translate(539.605 212.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Station du Markstein" data-region="VO" transform="translate(539.605 229.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station du Mont Serein" data-region="AS"
                 transform="translate(468.605 429.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station Roubion - Les Buisses" data-region="AS"
                 transform="translate(535.605 436.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Station Ventoux Sud" data-region="AS" transform="translate(536.605 438.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Super Besse" data-region="MC" transform="translate(381.605 363.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="SuperDevoluy" data-region="AS" transform="translate(491.605 404.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Thanner-Hubel" data-region="VO" transform="translate(543.605 237.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Thollon les Memises" data-region="AN" transform="translate(521.605 314.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Tignes" data-region="AN" transform="translate(529.605 355.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Val Cenis" data-region="AN" transform="translate(526.605 372.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Val d'Allos - La Foux" data-region="AS" transform="translate(526.605 431.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Val d'Allos - Le Seignus" data-region="AS"
                 transform="translate(528.605 428.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Val d'Isere" data-region="AN" transform="translate(530.605 358.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Val Louron 1450" data-region="PY" transform="translate(276.605 491.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Val Thorens" data-region="AN" transform="translate(512.605 374.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Valberg 1700" data-region="AS" transform="translate(531.605 434.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Valfrejus" data-region="AN" transform="translate(518.605 378.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Vallandry 1600" data-region="AN" transform="translate(519.605 352.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Valloire" data-region="AN" transform="translate(512.605 377.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Valmeinier" data-region="AN" transform="translate(514.605 377.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
             <g class="ville" data-ville="Valmorel" data-region="AN" transform="translate(506.605 354.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Vars - La Foret Blanche" data-region="AS"
                 transform="translate(526.605 409.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Vaujany 1250" data-region="AN" transform="translate(505.605 374.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Villard Reculas 1500" data-region="AN" transform="translate(504.605 376.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Villaroger 1200" data-region="AN" transform="translate(525.605 354.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
 
             <g class="ville" data-ville="Villeneuve" data-region="AS" transform="translate(495.605 404.605)">
-                <circle r="3" />
-                <use href="#flocon" class="flocon" x="-8" y="-8" width="16" height="16" />
+                <circle r="2" />
+                <use href="#flocon" class="flocon" x="-4" y="-4" width="10" height="10" />
             </g>
+
+
+
+
+
+
+
+
+
+
+
+            <g id="zone-VO" class="zone" onclick="zoomTo('VO')">
+                <path
+                    d="M531.25 242.164L538.625 257.735L542.172 259.409H547.648L553.184 248.637L551.379 237.744L546.647 226.273L553.487 203.388L546.647 195.734L532.378 208.382L518.834 217.054L523.487 226.273L517.957 234.377L531.25 242.164Z"
+                    class="zone-fill" />
+                <rect x="538.095" y="218.5" width="100" height="26" rx="13" fill="white" />
+                <rect x="538.095" y="218.5" width="100" height="26" rx="13" stroke="#489BB6" />
+                <path
+                    d="M547.067 226.14H548.827V235.932H554.235V237.5H547.067V226.14ZM559.162 236.204C560.346 236.204 561.114 235.628 561.29 234.716L562.858 235.036C562.506 236.684 561.13 237.66 559.114 237.66C556.442 237.66 555.002 235.98 555.002 233.052C555.002 230.172 556.538 228.476 559.05 228.476C561.53 228.476 562.89 230.188 562.89 232.588C562.89 233.196 562.842 233.436 562.474 233.436H556.682C556.778 235.404 557.642 236.204 559.162 236.204ZM559.05 229.884C557.786 229.884 556.954 230.54 556.73 232.124H561.226C561.082 230.636 560.314 229.884 559.05 229.884ZM565.932 230.972C565.932 231.756 566.412 231.916 567.516 232.156L568.588 232.38C570.268 232.732 571.196 233.388 571.196 234.924C571.196 236.684 569.852 237.66 567.708 237.66C565.58 237.66 564.284 236.828 563.964 235.036L565.628 234.732C565.836 235.788 566.54 236.284 567.708 236.284C568.908 236.284 569.516 235.884 569.516 235.052C569.516 234.268 569.116 234.06 567.916 233.788L566.748 233.548C565.244 233.228 564.268 232.652 564.268 231.132C564.268 229.532 565.564 228.476 567.58 228.476C569.548 228.476 570.732 229.292 571.036 230.892L569.404 231.18C569.164 230.236 568.604 229.852 567.58 229.852C566.492 229.852 565.932 230.268 565.932 230.972ZM575.43 226.14H577.382L580.294 235.708C580.358 235.9 580.39 235.948 580.502 235.948H580.582C580.71 235.948 580.726 235.9 580.774 235.708L583.558 226.14H585.462L582.246 236.764C582.086 237.324 581.814 237.516 581.19 237.516H579.846C579.254 237.516 578.966 237.324 578.79 236.764L575.43 226.14ZM590.175 237.66C587.615 237.66 586.111 236.012 586.111 233.068C586.111 230.14 587.615 228.476 590.175 228.476C592.751 228.476 594.255 230.14 594.255 233.068C594.255 236.012 592.751 237.66 590.175 237.66ZM590.175 236.172C591.727 236.172 592.575 235.212 592.575 233.068C592.575 230.956 591.727 229.98 590.175 229.98C588.623 229.98 587.791 230.956 587.791 233.068C587.791 235.212 588.623 236.172 590.175 236.172ZM597.323 230.972C597.323 231.756 597.803 231.916 598.907 232.156L599.979 232.38C601.659 232.732 602.587 233.388 602.587 234.924C602.587 236.684 601.243 237.66 599.099 237.66C596.971 237.66 595.675 236.828 595.355 235.036L597.019 234.732C597.227 235.788 597.931 236.284 599.099 236.284C600.299 236.284 600.907 235.884 600.907 235.052C600.907 234.268 600.507 234.06 599.307 233.788L598.139 233.548C596.635 233.228 595.659 232.652 595.659 231.132C595.659 229.532 596.955 228.476 598.971 228.476C600.939 228.476 602.123 229.292 602.427 230.892L600.795 231.18C600.555 230.236 599.995 229.852 598.971 229.852C597.883 229.852 597.323 230.268 597.323 230.972ZM607.751 240.86C606.007 240.86 604.679 240.188 604.263 238.652L605.847 238.172C606.039 239.02 606.727 239.42 607.767 239.42C609.063 239.42 609.879 238.812 609.879 237.324V236.204C609.367 236.988 608.519 237.436 607.415 237.436C605.111 237.436 603.767 235.9 603.767 233.004C603.767 230.124 605.383 228.476 608.055 228.476C608.935 228.476 610.039 228.668 610.871 229.004C611.335 229.196 611.495 229.404 611.495 229.916V237.164C611.495 239.612 610.055 240.86 607.751 240.86ZM605.495 233.004C605.495 235.052 606.295 235.964 607.767 235.964C609.111 235.964 609.831 234.956 609.831 233.756V230.62C609.831 230.364 609.799 230.316 609.527 230.22C609.159 230.092 608.599 229.964 607.959 229.964C606.407 229.964 605.495 231.02 605.495 233.004ZM617.521 236.204C618.705 236.204 619.473 235.628 619.649 234.716L621.217 235.036C620.865 236.684 619.489 237.66 617.473 237.66C614.801 237.66 613.361 235.98 613.361 233.052C613.361 230.172 614.897 228.476 617.409 228.476C619.889 228.476 621.249 230.188 621.249 232.588C621.249 233.196 621.201 233.436 620.833 233.436H615.041C615.137 235.404 616.001 236.204 617.521 236.204ZM617.409 229.884C616.145 229.884 615.313 230.54 615.089 232.124H619.585C619.441 230.636 618.673 229.884 617.409 229.884ZM624.291 230.972C624.291 231.756 624.771 231.916 625.875 232.156L626.947 232.38C628.627 232.732 629.555 233.388 629.555 234.924C629.555 236.684 628.211 237.66 626.067 237.66C623.939 237.66 622.643 236.828 622.323 235.036L623.987 234.732C624.195 235.788 624.899 236.284 626.067 236.284C627.267 236.284 627.875 235.884 627.875 235.052C627.875 234.268 627.475 234.06 626.275 233.788L625.107 233.548C623.603 233.228 622.627 232.652 622.627 231.132C622.627 229.532 623.923 228.476 625.939 228.476C627.907 228.476 629.091 229.292 629.395 230.892L627.763 231.18C627.523 230.236 626.963 229.852 625.939 229.852C624.851 229.852 624.291 230.268 624.291 230.972Z"
+                    class="zone-fill" />
+
+            </g>
+
+            <g id="zone-PY" class="zone" onclick="zoomTo('PY')">
+
+                <path
+                    d="M292.5 483L258 468.5H257L251 476.5L245.5 489.5H246L252.5 497.5L255.5 495L259.5 497.5L279 498.5L281 496.5L284 498.5L289 493.5H293.5L309.5 499L311.823 504.5H324L325 515L329.5 514.5L335.5 521.5H341.5L346 519H349.5L354.5 509L334.5 478.5L316 484L303.5 475.5L292.5 483Z"
+                    class="zone-fill" />
+                <rect x="212.5" y="508.5" width="86" height="26" rx="13" fill="white" />
+                <rect x="212.5" y="508.5" width="86" height="26" rx="13" stroke="#489BB6" />
+                <path
+                    d="M221.472 516.14H226.144C228.416 516.14 229.824 517.404 229.824 519.692C229.824 521.98 228.416 523.244 226.144 523.244H223.232V527.5H221.472V516.14ZM226.096 517.676H223.232V521.708H226.096C227.376 521.708 228.032 520.94 228.032 519.692C228.032 518.46 227.376 517.676 226.096 517.676ZM230.755 518.636H232.531L234.627 525.772C234.691 525.948 234.723 525.98 234.867 525.98H235.107L237.283 518.636H238.979L235.347 530.7H233.635L234.643 527.5H234.227C233.587 527.5 233.363 527.276 233.187 526.636L230.755 518.636ZM244.949 518.636V520.204H243.269C242.405 520.204 241.941 520.684 241.941 521.548V527.5H240.261V521.5C240.261 519.532 241.317 518.636 243.141 518.636H244.949ZM248.916 517.772L250.404 515.5H252.26L250.292 517.772H248.916ZM250.036 526.204C251.22 526.204 251.988 525.628 252.164 524.716L253.732 525.036C253.38 526.684 252.004 527.66 249.988 527.66C247.316 527.66 245.876 525.98 245.876 523.052C245.876 520.172 247.412 518.476 249.924 518.476C252.404 518.476 253.764 520.188 253.764 522.588C253.764 523.196 253.716 523.436 253.348 523.436H247.556C247.652 525.404 248.516 526.204 250.036 526.204ZM249.924 519.884C248.66 519.884 247.828 520.54 247.604 522.124H252.1C251.956 520.636 251.188 519.884 249.924 519.884ZM259.19 519.996C257.91 519.996 257.174 520.652 257.174 521.916V527.5H255.51V521.676C255.51 519.708 256.934 518.476 259.19 518.476C261.43 518.476 262.87 519.708 262.87 521.676V527.5H261.19V521.916C261.19 520.652 260.454 519.996 259.19 519.996ZM267.666 517.772L269.154 515.5H271.01L269.042 517.772H267.666ZM268.786 526.204C269.97 526.204 270.738 525.628 270.914 524.716L272.482 525.036C272.13 526.684 270.754 527.66 268.738 527.66C266.066 527.66 264.626 525.98 264.626 523.052C264.626 520.172 266.162 518.476 268.674 518.476C271.154 518.476 272.514 520.188 272.514 522.588C272.514 523.196 272.466 523.436 272.098 523.436H266.306C266.402 525.404 267.266 526.204 268.786 526.204ZM268.674 519.884C267.41 519.884 266.578 520.54 266.354 522.124H270.85C270.706 520.636 269.938 519.884 268.674 519.884ZM278.02 526.204C279.204 526.204 279.972 525.628 280.148 524.716L281.716 525.036C281.364 526.684 279.988 527.66 277.972 527.66C275.3 527.66 273.86 525.98 273.86 523.052C273.86 520.172 275.396 518.476 277.908 518.476C280.388 518.476 281.748 520.188 281.748 522.588C281.748 523.196 281.7 523.436 281.332 523.436H275.54C275.636 525.404 276.5 526.204 278.02 526.204ZM277.908 519.884C276.644 519.884 275.812 520.54 275.588 522.124H280.084C279.94 520.636 279.172 519.884 277.908 519.884ZM284.79 520.972C284.79 521.756 285.27 521.916 286.374 522.156L287.446 522.38C289.126 522.732 290.054 523.388 290.054 524.924C290.054 526.684 288.71 527.66 286.566 527.66C284.438 527.66 283.142 526.828 282.822 525.036L284.486 524.732C284.694 525.788 285.398 526.284 286.566 526.284C287.766 526.284 288.374 525.884 288.374 525.052C288.374 524.268 287.974 524.06 286.774 523.788L285.606 523.548C284.102 523.228 283.126 522.652 283.126 521.132C283.126 519.532 284.422 518.476 286.438 518.476C288.406 518.476 289.59 519.292 289.894 520.892L288.262 521.18C288.022 520.236 287.462 519.852 286.438 519.852C285.35 519.852 284.79 520.268 284.79 520.972Z"
+                    class="zone-fill" />
+
+            </g>
+
+            <g id="zone-MC" class="zone" onclick="zoomTo('MC')">
+                <path
+                    d="M380.999 379.35L368.231 355.596L383.077 343.125L396.439 353.517V338.077L390.5 323.528L410.097 313.432L426.428 334.217L401.783 343.125L404.456 355.596L380.999 379.35Z"
+                    class="zone-fill" />
+                <path d="M380.999 425.373L396.439 413.496L416.036 428.045L401.783 440.813L380.999 425.373Z"
+                    class="zone-fill" />
+                <path d="M380.999 425.373L396.439 413.496L416.036 428.045L401.783 440.813L380.999 425.373Z"
+                    class="zone-fill" />
+                <rect x="331.5" y="368.5" width="120" height="26" rx="13" fill="white" />
+                <rect x="331.5" y="368.5" width="120" height="26" rx="13" stroke="#489BB6" />
+                <path
+                    d="M340.472 387.5V376.668C340.472 376.332 340.68 376.14 341 376.14H342.68C343.032 376.14 343.176 376.284 343.384 376.684L345.848 381.756C345.912 381.884 345.96 381.932 346.056 381.932C346.168 381.932 346.216 381.884 346.264 381.756L348.696 376.684C348.888 376.268 349.048 376.14 349.4 376.14H351.032C351.352 376.14 351.544 376.332 351.544 376.668V387.5H349.832V378.412C349.832 378.3 349.8 378.236 349.704 378.236C349.624 378.236 349.576 378.268 349.512 378.38L347.16 383.164C346.968 383.564 346.792 383.692 346.456 383.692H345.624C345.272 383.692 345.096 383.564 344.904 383.164L342.52 378.396C342.456 378.284 342.408 378.252 342.344 378.252C342.264 378.252 342.184 378.3 342.184 378.428V387.564L340.472 387.5ZM360.791 386.252C360.791 386.78 360.551 387.036 360.023 387.228C359.255 387.5 358.263 387.66 357.031 387.66C354.871 387.66 353.719 386.748 353.719 385.1C353.719 383.596 354.775 382.78 356.775 382.316L359.127 381.772V381.532C359.127 380.476 358.487 379.884 357.415 379.884C356.407 379.884 355.783 380.332 355.543 381.308L353.959 381.036C354.295 379.404 355.639 378.476 357.431 378.476C359.399 378.476 360.791 379.5 360.791 381.66V386.252ZM355.415 385.02C355.415 385.884 355.975 386.284 357.191 386.284C357.751 386.284 358.327 386.188 358.743 386.06C359.031 385.98 359.159 385.868 359.159 385.58V383.132L356.983 383.644C355.991 383.868 355.415 384.252 355.415 385.02ZM364.181 380.972C364.181 381.756 364.661 381.916 365.765 382.156L366.837 382.38C368.517 382.732 369.445 383.388 369.445 384.924C369.445 386.684 368.101 387.66 365.957 387.66C363.829 387.66 362.533 386.828 362.213 385.036L363.877 384.732C364.085 385.788 364.789 386.284 365.957 386.284C367.157 386.284 367.765 385.884 367.765 385.052C367.765 384.268 367.365 384.06 366.165 383.788L364.997 383.548C363.493 383.228 362.517 382.652 362.517 381.132C362.517 379.532 363.813 378.476 365.829 378.476C367.797 378.476 368.981 379.292 369.285 380.892L367.653 381.18C367.413 380.236 366.853 379.852 365.829 379.852C364.741 379.852 364.181 380.268 364.181 380.972ZM372.29 380.972C372.29 381.756 372.77 381.916 373.874 382.156L374.946 382.38C376.626 382.732 377.554 383.388 377.554 384.924C377.554 386.684 376.21 387.66 374.066 387.66C371.938 387.66 370.642 386.828 370.322 385.036L371.986 384.732C372.194 385.788 372.898 386.284 374.066 386.284C375.266 386.284 375.874 385.884 375.874 385.052C375.874 384.268 375.474 384.06 374.274 383.788L373.106 383.548C371.602 383.228 370.626 382.652 370.626 381.132C370.626 379.532 371.922 378.476 373.938 378.476C375.906 378.476 377.09 379.292 377.394 380.892L375.762 381.18C375.522 380.236 374.962 379.852 373.938 379.852C372.85 379.852 372.29 380.268 372.29 380.972ZM380.127 377.756C379.455 377.756 378.975 377.26 378.975 376.636C378.975 375.98 379.455 375.5 380.127 375.5C380.767 375.5 381.263 375.98 381.263 376.636C381.263 377.26 380.767 377.756 380.127 377.756ZM379.295 378.636H380.959V387.5H379.295V378.636ZM382.444 380.124V378.636H383.836V377.884C383.836 376.412 384.748 375.5 386.252 375.5H387.756V376.988H386.411C385.82 376.988 385.516 377.292 385.516 377.884V378.636H387.788V380.124H385.516V387.5H383.836V380.124H382.444ZM396.095 387.66C393.519 387.66 392.063 386.06 392.063 383.052C392.063 380.124 393.599 378.476 396.063 378.476C397.999 378.476 399.247 379.516 399.631 381.34L397.967 381.676C397.759 380.604 397.135 379.98 396.079 379.98C394.607 379.98 393.759 380.956 393.759 383.052C393.759 385.164 394.543 386.172 396.127 386.172C397.199 386.172 397.887 385.596 398.063 384.54L399.695 384.86C399.327 386.636 397.983 387.66 396.095 387.66ZM404.973 386.204C406.157 386.204 406.925 385.628 407.101 384.716L408.669 385.036C408.317 386.684 406.941 387.66 404.925 387.66C402.253 387.66 400.813 385.98 400.813 383.052C400.813 380.172 402.349 378.476 404.861 378.476C407.341 378.476 408.701 380.188 408.701 382.588C408.701 383.196 408.653 383.436 408.285 383.436H402.493C402.589 385.404 403.453 386.204 404.973 386.204ZM404.861 379.884C403.597 379.884 402.765 380.54 402.541 382.124H407.037C406.893 380.636 406.125 379.884 404.861 379.884ZM414.127 379.996C412.847 379.996 412.111 380.652 412.111 381.916V387.5H410.447V381.676C410.447 379.708 411.871 378.476 414.127 378.476C416.367 378.476 417.807 379.708 417.807 381.676V387.5H416.127V381.916C416.127 380.652 415.391 379.996 414.127 379.996ZM422.091 380.124V385.132C422.091 385.708 422.379 386.012 422.955 386.012H424.091V387.5H422.427C421.115 387.5 420.427 386.796 420.427 385.452V380.124H419.067V378.828L419.963 378.684C420.331 378.636 420.475 378.556 420.539 378.22L420.843 376.62H422.091V378.636H424.091V380.124H422.091ZM430.371 378.636V380.204H428.691C427.827 380.204 427.363 380.684 427.363 381.548V387.5H425.683V381.5C425.683 379.532 426.739 378.636 428.562 378.636H430.371ZM438.401 386.252C438.401 386.78 438.161 387.036 437.633 387.228C436.865 387.5 435.873 387.66 434.641 387.66C432.481 387.66 431.329 386.748 431.329 385.1C431.329 383.596 432.385 382.78 434.385 382.316L436.737 381.772V381.532C436.737 380.476 436.097 379.884 435.025 379.884C434.017 379.884 433.393 380.332 433.153 381.308L431.569 381.036C431.905 379.404 433.249 378.476 435.041 378.476C437.009 378.476 438.401 379.5 438.401 381.66V386.252ZM433.025 385.02C433.025 385.884 433.585 386.284 434.801 386.284C435.361 386.284 435.937 386.188 436.353 386.06C436.641 385.98 436.769 385.868 436.769 385.58V383.132L434.593 383.644C433.601 383.868 433.025 384.252 433.025 385.02ZM442.429 387.5C441.261 387.5 440.541 386.892 440.541 385.612V375.5H442.205V385.308C442.205 385.772 442.445 386.012 442.893 386.012H443.405V387.5H442.429Z"
+                    class="zone-fill" />
+
+
+            </g>
+
+            <g id="zone-JU" class="zone" onclick="zoomTo('JU')">
+                <path
+                    d="M485.748 315.646L497.18 310.008L499.669 305.319L515.156 283.852L527.219 276.849L532.126 268.773L530.337 259.828L537.595 258.295L530.388 242.91L524.531 239.536L521.251 239.243L524.531 257.593L512.11 268.273L500.098 285.985L484.693 295.622L480.622 304.24L476.889 308.583L479.061 312.384L485.748 315.646Z"
+                    class="zone-fill" />
+                <rect x="509.864" y="273.391" width="45" height="26" rx="13" fill="white" />
+                <rect x="509.864" y="273.391" width="45" height="26" rx="13" stroke="#489BB6" />
+                <path
+                    d="M521.892 290.071C521.892 291.591 521.06 292.391 519.444 292.391H517.7V290.823H519.156C519.796 290.823 520.132 290.487 520.132 289.847V281.031H521.892V290.071ZM527.863 291.031C529.047 291.031 529.735 290.423 529.735 289.287V283.527H531.399V289.479C531.399 291.431 530.007 292.551 527.863 292.551C525.719 292.551 524.327 291.431 524.327 289.479V283.527H525.991V289.287C525.991 290.423 526.695 291.031 527.863 291.031ZM538.282 283.527V285.095H536.602C535.738 285.095 535.274 285.575 535.274 286.439V292.391H533.594V286.391C533.594 284.423 534.65 283.527 536.474 283.527H538.282ZM546.312 291.143C546.312 291.671 546.072 291.927 545.544 292.119C544.776 292.391 543.784 292.551 542.552 292.551C540.392 292.551 539.24 291.639 539.24 289.991C539.24 288.487 540.296 287.671 542.296 287.207L544.648 286.663V286.423C544.648 285.367 544.008 284.775 542.936 284.775C541.928 284.775 541.304 285.223 541.064 286.199L539.48 285.927C539.816 284.295 541.16 283.367 542.952 283.367C544.92 283.367 546.312 284.391 546.312 286.551V291.143ZM540.936 289.911C540.936 290.775 541.496 291.175 542.712 291.175C543.272 291.175 543.848 291.079 544.264 290.951C544.552 290.871 544.68 290.759 544.68 290.471V288.023L542.504 288.535C541.512 288.759 540.936 289.143 540.936 289.911Z"
+                    class="zone-fill" />
+            </g>
+
+            <g id="zone-AN" class="zone" onclick="zoomTo('AN')">
+                <path
+                    d="M499.5 318.5L494.5 326.5L504.428 323.562L506.523 316.386L507.518 314.71L509.195 314.186L511.709 315.705L515.061 314.186L516.947 314.71L519.828 312.824L525.014 314.186L523.233 327.858L531.405 332.991L533.029 340.325L525.224 348.182L534.967 359.968L535.857 369.502L519.8 380.745L504.613 377.681L506.462 389.382L498.697 395.114L495 393.5L488.5 403L481.5 403.5L479.5 411L475.5 414L477 417L467 413.5L465.5 397.5L474.5 387.5L471 366.5L479.5 365.5L491 341H468L475.589 317.166L479.245 313.446L485.683 317L497.33 311.116L499.5 318.5Z"
+                    class="zone-fill" />
+                <rect x="504.873" y="337.25" width="120" height="26" rx="13" fill="white" />
+                <rect x="504.873" y="337.25" width="120" height="26" rx="13" stroke="#489BB6" />
+                <path
+                    d="M522.933 356.25H521.061L520.069 353.114H515.445L514.437 356.25H512.613L516.101 345.562C516.245 345.05 516.501 344.89 517.029 344.89H518.501C519.013 344.89 519.269 345.05 519.445 345.562L522.933 356.25ZM517.557 346.538L515.941 351.546H519.573L517.973 346.538C517.925 346.41 517.909 346.362 517.797 346.362H517.733C517.637 346.362 517.589 346.41 517.557 346.538ZM526.146 356.25C524.978 356.25 524.258 355.642 524.258 354.362V344.25H525.922V354.058C525.922 354.522 526.162 354.762 526.61 354.762H527.122V356.25H526.146ZM532.38 356.41C531.436 356.41 530.732 356.122 530.252 355.546V359.45H528.572V348.666C528.572 348.058 528.844 347.882 529.26 347.722C530.076 347.386 531.292 347.226 532.092 347.226C534.7 347.226 536.364 348.89 536.364 351.834C536.364 354.826 534.636 356.41 532.38 356.41ZM534.652 351.882C534.652 349.898 533.788 348.73 532.028 348.73C531.388 348.73 530.924 348.826 530.636 348.906C530.3 349.002 530.252 349.066 530.252 349.338V352.954C530.252 354.282 530.908 354.938 532.172 354.938C533.74 354.938 534.652 353.882 534.652 351.882ZM541.877 354.954C543.061 354.954 543.829 354.378 544.005 353.466L545.573 353.786C545.221 355.434 543.845 356.41 541.829 356.41C539.157 356.41 537.717 354.73 537.717 351.802C537.717 348.922 539.253 347.226 541.765 347.226C544.245 347.226 545.605 348.938 545.605 351.338C545.605 351.946 545.557 352.186 545.189 352.186H539.397C539.493 354.154 540.357 354.954 541.877 354.954ZM541.765 348.634C540.501 348.634 539.669 349.29 539.445 350.874H543.941C543.797 349.386 543.029 348.634 541.765 348.634ZM548.647 349.722C548.647 350.506 549.127 350.666 550.231 350.906L551.303 351.13C552.983 351.482 553.911 352.138 553.911 353.674C553.911 355.434 552.567 356.41 550.423 356.41C548.295 356.41 546.999 355.578 546.679 353.786L548.343 353.482C548.551 354.538 549.255 355.034 550.423 355.034C551.623 355.034 552.231 354.634 552.231 353.802C552.231 353.018 551.831 352.81 550.631 352.538L549.463 352.298C547.959 351.978 546.983 351.402 546.983 349.882C546.983 348.282 548.279 347.226 550.295 347.226C552.263 347.226 553.447 348.042 553.751 349.642L552.119 349.93C551.879 348.986 551.319 348.602 550.295 348.602C549.207 348.602 548.647 349.018 548.647 349.722ZM565.618 355.914C564.802 356.282 563.538 356.41 562.738 356.41C560.162 356.41 558.53 355.002 558.53 351.85C558.53 349.002 560.018 347.226 562.37 347.226C563.378 347.226 564.146 347.594 564.626 348.25V344.25H566.29V354.986C566.29 355.578 566.018 355.738 565.618 355.914ZM560.226 351.834C560.226 353.946 561.074 354.938 562.786 354.938C563.458 354.938 563.954 354.842 564.242 354.746C564.578 354.65 564.626 354.618 564.626 354.346V350.682C564.626 349.45 563.858 348.714 562.626 348.714C561.09 348.714 560.226 349.946 560.226 351.834ZM572.059 354.89C573.243 354.89 573.931 354.282 573.931 353.146V347.386H575.595V353.338C575.595 355.29 574.203 356.41 572.059 356.41C569.915 356.41 568.523 355.29 568.523 353.338V347.386H570.187V353.146C570.187 354.282 570.891 354.89 572.059 354.89ZM581.579 356.25V345.418C581.579 345.082 581.787 344.89 582.107 344.89H583.595C583.995 344.89 584.187 345.002 584.363 345.37L588.699 353.962C588.747 354.042 588.795 354.074 588.843 354.074C588.923 354.074 588.971 354.026 588.971 353.93V344.89H590.651V355.722C590.651 356.058 590.443 356.25 590.123 356.25H588.651C588.251 356.25 588.059 356.138 587.883 355.786L583.531 347.178C583.483 347.082 583.451 347.05 583.387 347.05C583.291 347.05 583.259 347.114 583.259 347.21V356.25H581.579ZM596.875 356.41C594.315 356.41 592.811 354.762 592.811 351.818C592.811 348.89 594.315 347.226 596.875 347.226C599.451 347.226 600.955 348.89 600.955 351.818C600.955 354.762 599.451 356.41 596.875 356.41ZM596.875 354.922C598.427 354.922 599.275 353.962 599.275 351.818C599.275 349.706 598.427 348.73 596.875 348.73C595.323 348.73 594.491 349.706 594.491 351.818C594.491 353.962 595.323 354.922 596.875 354.922ZM607.446 347.386V348.954H605.766C604.902 348.954 604.438 349.434 604.438 350.298V356.25H602.758V350.25C602.758 348.282 603.814 347.386 605.638 347.386H607.446ZM615.43 355.914C614.614 356.282 613.35 356.41 612.55 356.41C609.974 356.41 608.342 355.002 608.342 351.85C608.342 349.002 609.83 347.226 612.182 347.226C613.19 347.226 613.958 347.594 614.438 348.25V344.25H616.102V354.986C616.102 355.578 615.83 355.738 615.43 355.914ZM610.038 351.834C610.038 353.946 610.886 354.938 612.598 354.938C613.27 354.938 613.766 354.842 614.054 354.746C614.39 354.65 614.438 354.618 614.438 354.346V350.682C614.438 349.45 613.67 348.714 612.438 348.714C610.902 348.714 610.038 349.946 610.038 351.834Z"
+                    class="zone-fill" />
+
+            </g>
+
+            <g id="zone-AS" class="zone" onclick="zoomTo('AS')">
+                <path
+                    d="M518.344 381.595V382.267L527.09 393.976L532.907 394.382L535.613 401.823L530.878 408.452V420.965L540.889 432.668H551.373L555.364 438.485L532.839 449.172L520.393 435.712L498.835 431.924L501.656 412.781H489.067L489.548 430.774L478.387 441.664L458.79 429.072L468.714 425.496L476.269 434.839H480.784L483.6 431.486V427.15L476.85 414.187L480.605 411.773L482.33 404.51L489.067 404.072L495.467 394.741L498.835 396.358L507.593 389.992L505.976 379.045L518.344 381.595Z"
+                    class="zone-fill" />
+
+                <rect x="517.903" y="401.109" width="112" height="26" rx="13" fill="white" />
+                <rect x="517.903" y="401.109" width="112" height="26" rx="13" stroke="#489BB6" />
+                <path
+                    d="M535.963 420.109H534.091L533.099 416.973H528.475L527.467 420.109H525.643L529.131 409.421C529.275 408.909 529.531 408.749 530.059 408.749H531.531C532.043 408.749 532.299 408.909 532.475 409.421L535.963 420.109ZM530.587 410.397L528.971 415.405H532.603L531.003 410.397C530.955 410.269 530.939 410.221 530.827 410.221H530.763C530.667 410.221 530.619 410.269 530.587 410.397ZM539.176 420.109C538.008 420.109 537.288 419.501 537.288 418.221V408.109H538.952V417.917C538.952 418.381 539.192 418.621 539.64 418.621H540.152V420.109H539.176ZM545.411 420.269C544.467 420.269 543.763 419.981 543.283 419.405V423.309H541.603V412.525C541.603 411.917 541.875 411.741 542.291 411.581C543.107 411.245 544.323 411.085 545.123 411.085C547.731 411.085 549.395 412.749 549.395 415.693C549.395 418.685 547.667 420.269 545.411 420.269ZM547.683 415.741C547.683 413.757 546.819 412.589 545.059 412.589C544.419 412.589 543.955 412.685 543.667 412.765C543.331 412.861 543.283 412.925 543.283 413.197V416.813C543.283 418.141 543.939 418.797 545.203 418.797C546.771 418.797 547.683 417.741 547.683 415.741ZM554.908 418.813C556.092 418.813 556.86 418.237 557.036 417.325L558.604 417.645C558.252 419.293 556.876 420.269 554.86 420.269C552.188 420.269 550.748 418.589 550.748 415.661C550.748 412.781 552.284 411.085 554.796 411.085C557.276 411.085 558.636 412.797 558.636 415.197C558.636 415.805 558.588 416.045 558.22 416.045H552.428C552.524 418.013 553.388 418.813 554.908 418.813ZM554.796 412.493C553.532 412.493 552.7 413.149 552.476 414.733H556.972C556.828 413.245 556.06 412.493 554.796 412.493ZM561.678 413.581C561.678 414.365 562.158 414.525 563.262 414.765L564.334 414.989C566.014 415.341 566.942 415.997 566.942 417.533C566.942 419.293 565.598 420.269 563.454 420.269C561.326 420.269 560.03 419.437 559.71 417.645L561.374 417.341C561.582 418.397 562.286 418.893 563.454 418.893C564.654 418.893 565.262 418.493 565.262 417.661C565.262 416.877 564.862 416.669 563.662 416.397L562.494 416.157C560.99 415.837 560.014 415.261 560.014 413.741C560.014 412.141 561.31 411.085 563.326 411.085C565.294 411.085 566.478 411.901 566.782 413.501L565.15 413.789C564.91 412.845 564.35 412.461 563.326 412.461C562.238 412.461 561.678 412.877 561.678 413.581ZM578.648 419.773C577.832 420.141 576.568 420.269 575.768 420.269C573.192 420.269 571.56 418.861 571.56 415.709C571.56 412.861 573.048 411.085 575.4 411.085C576.408 411.085 577.176 411.453 577.656 412.109V408.109H579.32V418.845C579.32 419.437 579.048 419.597 578.648 419.773ZM573.256 415.693C573.256 417.805 574.104 418.797 575.816 418.797C576.488 418.797 576.984 418.701 577.272 418.605C577.608 418.509 577.656 418.477 577.656 418.205V414.541C577.656 413.309 576.888 412.573 575.656 412.573C574.12 412.573 573.256 413.805 573.256 415.693ZM585.089 418.749C586.273 418.749 586.961 418.141 586.961 417.005V411.245H588.625V417.197C588.625 419.149 587.233 420.269 585.089 420.269C582.945 420.269 581.553 419.149 581.553 417.197V411.245H583.217V417.005C583.217 418.141 583.921 418.749 585.089 418.749ZM593.602 416.941L595.426 416.573C595.682 418.029 596.578 418.749 598.258 418.749C599.794 418.749 600.69 418.093 600.69 417.005C600.69 415.917 600.034 415.549 598.514 415.213L597.282 414.941C595.202 414.477 593.97 413.805 593.97 411.789C593.97 409.933 595.442 408.589 598.082 408.589C600.466 408.589 601.906 409.645 602.258 411.629L600.514 411.997C600.274 410.717 599.458 410.109 598.066 410.109C596.594 410.109 595.762 410.749 595.762 411.709C595.778 412.813 596.546 413.037 598.034 413.373L599.17 413.629C601.33 414.125 602.498 414.973 602.498 416.877C602.498 419.053 600.818 420.269 598.258 420.269C595.618 420.269 594.098 419.325 593.602 416.941ZM607.761 418.749C608.945 418.749 609.633 418.141 609.633 417.005V411.245H611.297V417.197C611.297 419.149 609.905 420.269 607.761 420.269C605.617 420.269 604.225 419.149 604.225 417.197V411.245H605.889V417.005C605.889 418.141 606.593 418.749 607.761 418.749ZM620.148 419.773C619.332 420.141 618.068 420.269 617.268 420.269C614.692 420.269 613.06 418.861 613.06 415.709C613.06 412.861 614.548 411.085 616.9 411.085C617.908 411.085 618.676 411.453 619.156 412.109V408.109H620.82V418.845C620.82 419.437 620.548 419.597 620.148 419.773ZM614.756 415.693C614.756 417.805 615.604 418.797 617.316 418.797C617.988 418.797 618.484 418.701 618.772 418.605C619.108 418.509 619.156 418.477 619.156 418.205V414.541C619.156 413.309 618.388 412.573 617.156 412.573C615.62 412.573 614.756 413.805 614.756 415.693Z"
+                    class="zone-fill" />
+            </g>
+
             <defs>
-                <symbol id="flocon" viewBox="0 0 16 16">
+                <symbol id="flocon" viewBox="0 0 10 10">
                     <!-- Fond rond -->
-                    <rect x="0" y="0" width="16" height="16" rx="8" fill="#D9642D" />
+                    <rect x="0" y="0" width="10" height="10" rx="8" fill="#D9642D" />
 
                     <!-- Flocon -->
-                    <path d="M2 8H5.9
-       M14 8H9.95
-       M8 2V5.9
-       M8 14V9.95
-       M8 5.9L5 2.9
-       M8 5.9L11 2.9
-       M8 5.9V9.95
-       M5.9 8L2.9 5
-       M5.9 8L2.9 11
-       M5.9 8H9.95
-       M8 9.95L5 12.95
-       M8 9.95L11 12.95
-       M9.95 8L12.95 5
-       M9.95 8L12.95 11" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    <path
+                        d="M1.27948 5.11798H3.77447M8.95636 5.11798H6.36541M5.11792 1.27954V3.77453M5.11792 8.95642V6.36547M5.11792 3.77453L3.1987 1.85531M5.11792 3.77453L7.03714 1.85531M5.11792 3.77453V6.36547M3.77447 5.11798L1.85525 3.19876M3.77447 5.11798L1.85525 7.0372M3.77447 5.11798H6.36541M5.11792 6.36547L3.1987 8.28469M5.11792 6.36547L7.03714 8.28469M6.36541 5.11798L8.28463 3.19876M6.36541 5.11798L8.28463 7.0372"
+                        stroke="white" stroke-width="0.63974" />
+
                 </symbol>
 
 
@@ -2875,7 +2970,7 @@
                     <stop offset="1" stop-color="#C5E5EF" />
                 </linearGradient>
                 <clipPath id="clip0_323_20">
-                    <rect x="258" y="300" width="16" height="16" rx="8" fill="white" />
+                    <rect x="258" y="300" width="10" height="10" rx="8" fill="white" />
                 </clipPath>
                 <image href="../carte-interactive-bouygues-hiver/img/bg.png" x="0" y="0" width="100%" height="100%"
                     opacity="0.5" />
@@ -2901,25 +2996,57 @@
         }
 
         function applyFilters() {
-            const typeMatch = (type) =>
-                currentFilter === "all" ||
-                (currentFilter === "event" && type === "event") ||
-                (currentFilter === "music" && type === "music");
+            const circles = document.querySelectorAll("g[data-ville]");
+            const listItems = document.querySelectorAll(".city-list li");
+            const zones = document.querySelectorAll(".zone");
 
-            document.querySelectorAll("g[data-ville]").forEach(circle => {
-                const type = circle.classList.contains("event") ? "event" : "music";
+            /* ==========================
+               CAS 1 — FILTER = ALL
+            ========================== */
+            if (currentRegion === "all") {
+
+                // ❌ Carte : on cache TOUS les points
+                circles.forEach(circle => circle.classList.add("hidden"));
+
+                // ✅ Liste : on affiche TOUT
+                listItems.forEach(item => item.classList.remove("hidden"));
+
+                // ✅ Zones visibles
+                zones.forEach(zone => zone.classList.remove("hidden"));
+
+                return;
+            }
+
+            /* ==========================
+               CAS 2 — FILTRE ACTIF
+            ========================== */
+
+            // ❌ Zones cachées dès qu’on filtre
+            zones.forEach(zone => zone.classList.add("hidden"));
+
+            const typeMatch = (type) =>
+                currentFilter === type;
+
+            /* ---- CARTE ---- */
+            circles.forEach(circle => {
+
                 const region = circle.dataset.region;
-                const show = typeMatch(type) && (currentRegion === "all" || region === currentRegion);
+
+                const show = (currentRegion === "all" || region === currentRegion);
+
                 circle.classList.toggle("hidden", !show);
             });
 
-            document.querySelectorAll(".city-list li").forEach(item => {
-                const type = item.dataset.type;
+            /* ---- LISTE ---- */
+            listItems.forEach(item => {
                 const region = item.dataset.region;
-                const show = typeMatch(type) && (currentRegion === "all" || region === currentRegion);
+
+                const show = currentRegion === "all" || region === currentRegion;
+
                 item.classList.toggle("hidden", !show);
             });
         }
+
 
         function animateViewBox(x, y, w, h, duration = 600) {
             const [startX, startY, startW, startH] = currentViewBox;
@@ -2946,7 +3073,7 @@
             requestAnimationFrame(animate);
         }
 
-        function zoomTo(region, btn) {
+        function zoomTo(region) {
             let x = 50, y = 0, w = 600, h = 642;
             currentRegion = region;
 
@@ -2978,8 +3105,7 @@
             animateViewBox(x, y, w, h);
 
             document.querySelectorAll(".zoom-button").forEach(b => b.classList.remove("active"));
-            console.log(btn)
-            btn.classList.add("active");
+            document.getElementById(region).classList.add("active");
         }
 
         function resetZoom() {
@@ -2988,18 +3114,24 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
+
             circles.forEach(circle => {
                 const ville = circle.dataset.ville;
+                circle.addEventListener("click", () => {
+                    const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
+                    console.log("click")
+                    if (!listItem) return;
+
+                    scrollContainer.scrollTo({
+                        top: listItem.offsetTop - scrollContainer.offsetTop - 40,
+                        behavior: "smooth"
+                    });
+                });
+
                 circle.addEventListener("mouseenter", () => {
                     const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
                     if (listItem) {
                         listItem.classList.add("hovered");
-
-                        const offset = listItem.offsetTop;
-                        scrollContainer.scrollTo({
-                            top: offset - 275,
-                            behavior: "smooth"
-                        });
                     }
 
                     circle.setAttribute("r", 8);
