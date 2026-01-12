@@ -87,6 +87,7 @@
         }
 
         .ville circle {
+            cursor: pointer;
             fill: #2D455D;
             transition: fill 0.2s ease;
         }
@@ -3132,6 +3133,11 @@
                     const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
                     if (listItem) {
                         listItem.classList.add("hovered");
+                        //     scrollContainer.scrollTo({
+                        //     top: listItem.offsetTop - scrollContainer.offsetTop - 40,
+
+                        // });
+
                     }
 
                     circle.setAttribute("r", 8);
