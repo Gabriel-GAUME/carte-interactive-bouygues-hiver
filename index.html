@@ -249,8 +249,8 @@
         <div class="list-container">
             <div class="filters"><span class="filter-title">Massifs montagneux</span>
                 <div class="zoom-buttons fitlers-list">
-                    <button class="filter-button zoom-button active" id="reset"
-                        onclick="zoomTo('reset', this)">Tous</button>
+                    <button class="filter-button zoom-button active" id="all"
+                        onclick="zoomTo('all', this)">Tous</button>
                     <button class="filter-button zoom-button" id="AN" onclick="zoomTo('AN', this)">Alpes du
                         Nord</button>
                     <button class="filter-button zoom-button" id="AS" onclick="zoomTo('AS', this)">Alpes du Sud</button>
@@ -2850,16 +2850,6 @@
                 <use href="#flocon" class="flocon" x="-3" y="-3" width="6" height="6" />
             </g>
 
-
-
-
-
-
-
-
-
-
-
             <g id="zone-VO" class="zone" onclick="zoomTo('VO')">
                 <path
                     d="M531.25 242.164L538.625 257.735L542.172 259.409H547.648L553.184 248.637L551.379 237.744L546.647 226.273L553.487 203.388L546.647 195.734L532.378 208.382L518.834 217.054L523.487 226.273L517.957 234.377L531.25 242.164Z"
@@ -2943,7 +2933,9 @@
                     <rect x="0" y="0" width="8" height="8" rx="6" fill="#D9642D" />
 
                     <!-- Flocon -->
-<path d="M1 4H2.95M7 4H4.975M4 1V2.95M4 7V4.975M4 2.95L2.5 1.45M4 2.95L5.5 1.45M4 2.95V4.975M2.95 4L1.45 2.5M2.95 4L1.45 5.5M2.95 4H4.975M4 4.975L2.5 6.475M4 4.975L5.5 6.475M4.975 4L6.475 2.5M4.975 4L6.475 5.5" stroke="white" stroke-width="0.6"/>
+                    <path
+                        d="M1 4H2.95M7 4H4.975M4 1V2.95M4 7V4.975M4 2.95L2.5 1.45M4 2.95L5.5 1.45M4 2.95V4.975M2.95 4L1.45 2.5M2.95 4L1.45 5.5M2.95 4H4.975M4 4.975L2.5 6.475M4 4.975L5.5 6.475M4.975 4L6.475 2.5M4.975 4L6.475 5.5"
+                        stroke="white" stroke-width="0.6" />
 
                 </symbol>
 
@@ -3073,6 +3065,12 @@
         }
 
         function zoomTo(region) {
+            console.log(currentRegion, region)
+            if(currentRegion === region ){
+                console.log('2')
+                return
+            }
+            console.log('3')
             let x = 50, y = 0, w = 600, h = 642;
             currentRegion = region;
 
@@ -3151,6 +3149,8 @@
                 });
             });
 
+            
+
             cityItems.forEach(item => {
                 const ville = item.dataset.ville;
                 item.addEventListener("mouseenter", () => {
@@ -3171,8 +3171,10 @@
                     item.classList.remove("hovered");
                 });
             });
-
+enableMapResetOnBackgroundClick();
             applyFilters();
+            
+
         });
 
 
@@ -3217,6 +3219,22 @@
                 item.classList.remove("hovered");
             });
         });
+
+        function enableMapResetOnBackgroundClick() {
+                svg.addEventListener("click", (e) => {
+
+                    // Si clic sur un point ou une zone → on ignore
+                    if (
+                        e.target.closest("g[data-ville]") ||
+                        e.target.closest(".zone")
+                    ) {
+                        return;
+                    }
+
+                    zoomTo("all")
+                });
+            }
+
 
 
 
