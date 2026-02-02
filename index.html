@@ -40,6 +40,11 @@
             margin: 8px 10px 12px
         }
 
+        g[data-ville] {
+            pointer-events: all;
+        }
+
+
         .container {
             display: flex;
             justify-content: space-between;
@@ -2972,11 +2977,41 @@
         const svg = document.getElementById("mapSVG"),
             circles = document.querySelectorAll("g[data-ville]"),
             cityItems = document.querySelectorAll(".city-list li"),
-            scrollContainer = document.querySelector(".scrollable-list");
+            scrollContainer = document.querySelector(".scrollable-list"),
+            frontLayer = document.getElementById("svg-front-layer");
 
         let currentViewBox = [90, 128, 540, 768],
             currentFilter = "all",
             currentRegion = "all";
+
+        /* ==========================
+           FRONT LAYER (SVG)
+        ========================== */
+
+        function moveToFront(circle) {
+            if (!circle) return;
+
+            if (!circle.__originalParent) {
+                circle.__originalParent = circle.parentNode;
+                circle.__nextSibling = circle.nextSibling;
+            }
+
+            frontLayer.appendChild(circle);
+        }
+
+        function restoreCircle(circle) {
+            if (!circle || !circle.__originalParent) return;
+
+            if (circle.__nextSibling) {
+                circle.__originalParent.insertBefore(circle, circle.__nextSibling);
+            } else {
+                circle.__originalParent.appendChild(circle);
+            }
+        }
+
+        /* ==========================
+           FILTERS
+        ========================== */
 
         function setFilter(e) {
             currentFilter = e;
@@ -2991,53 +3026,33 @@
             const listItems = document.querySelectorAll(".city-list li");
             const zones = document.querySelectorAll(".zone");
 
-            /* ==========================
-               CAS 1 — FILTER = ALL
-            ========================== */
+            // ALL = pas de points sur la carte, liste visible
             if (currentRegion === "all") {
-
-                // ❌ Carte : on cache TOUS les points
                 circles.forEach(circle => circle.classList.add("hidden"));
-
-                // ✅ Liste : on affiche TOUT
                 listItems.forEach(item => item.classList.remove("hidden"));
-
-                // ✅ Zones visibles
                 zones.forEach(zone => zone.classList.remove("hidden"));
-
                 return;
             }
 
-            /* ==========================
-               CAS 2 — FILTRE ACTIF
-            ========================== */
-
-            // ❌ Zones cachées dès qu’on filtre
+            // zones cachées quand zoom
             zones.forEach(zone => zone.classList.add("hidden"));
 
-            const typeMatch = (type) =>
-                currentFilter === type;
-
-            /* ---- CARTE ---- */
             circles.forEach(circle => {
-
                 const region = circle.dataset.region;
-
                 const show = (currentRegion === "all" || region === currentRegion);
-
                 circle.classList.toggle("hidden", !show);
             });
 
-            /* ---- LISTE ---- */
             listItems.forEach(item => {
                 const region = item.dataset.region;
-
-                const show = currentRegion === "all" || region === currentRegion;
-
+                const show = (currentRegion === "all" || region === currentRegion);
                 item.classList.toggle("hidden", !show);
             });
         }
 
+        /* ==========================
+           ZOOM MAP
+        ========================== */
 
         function animateViewBox(x, y, w, h, duration = 600) {
             const [startX, startY, startW, startH] = currentViewBox;
@@ -3046,6 +3061,7 @@
             function animate(time) {
                 const t = Math.min((time - startTime) / duration, 1);
                 const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
                 const curX = startX + (x - startX) * ease;
                 const curY = startY + (y - startY) * ease;
                 const curW = startW + (w - startW) * ease;
@@ -3065,43 +3081,28 @@
         }
 
         function zoomTo(region) {
-        
-            if(currentRegion === region ){
-                return
-            }
-            
+
+            if (currentRegion === region) return;
+
             let x = 50, y = 0, w = 600, h = 642;
             currentRegion = region;
 
             switch (region) {
-                case "AN":
-                    x = 440; y = 280; w = 130; h = 130;
-                    break;
-                case "AS":
-                    x = 450; y = 340; w = 130; h = 130;
-                    break;
-                case "JU":
-                    x = 400; y = 200; w = 200; h = 200;
-                    break;
-                case "VO":
-                    x = 430; y = 100; w = 200; h = 200;
-                    break;
-                case "MC":
-                    x = 290; y = 250; w = 200; h = 200;
-                    break;
-                case "PY":
-                    x = 220; y = 430; w = 150; h = 150;
-                    break;
+                case "AN": x = 440; y = 280; w = 130; h = 130; break;
+                case "AS": x = 450; y = 340; w = 130; h = 130; break;
+                case "JU": x = 400; y = 200; w = 200; h = 200; break;
+                case "VO": x = 430; y = 100; w = 200; h = 200; break;
+                case "MC": x = 290; y = 250; w = 200; h = 200; break;
+                case "PY": x = 220; y = 430; w = 150; h = 150; break;
                 default:
                     currentRegion = "all";
                     resetZoom();
-
             }
 
             animateViewBox(x, y, w, h);
 
             document.querySelectorAll(".zoom-button").forEach(b => b.classList.remove("active"));
-            document.getElementById(region).classList.add("active");
+            document.getElementById(region)?.classList.add("active");
         }
 
         function resetZoom() {
@@ -3109,13 +3110,34 @@
             currentRegion = "all";
         }
 
+        /* ==========================
+           EVENTS
+        ========================== */
+
         document.addEventListener("DOMContentLoaded", () => {
 
+            /* ---- HOVER CARTE ---- */
             circles.forEach(circle => {
                 const ville = circle.dataset.ville;
+
+                circle.addEventListener("pointerenter", () => {
+                    const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
+                    listItem?.classList.add("hovered");
+
+                    circle.classList.add("hovered");
+                    moveToFront(circle);
+                });
+
+                circle.addEventListener("pointerleave", () => {
+                    const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
+                    listItem?.classList.remove("hovered");
+
+                    circle.classList.remove("hovered");
+                    restoreCircle(circle);
+                });
+
                 circle.addEventListener("click", () => {
                     const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
-                    console.log("click")
                     if (!listItem) return;
 
                     scrollContainer.scrollTo({
@@ -3123,121 +3145,48 @@
                         behavior: "smooth"
                     });
                 });
-
-                circle.addEventListener("mouseenter", () => {
-                    const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
-                    if (listItem) {
-                        listItem.classList.add("hovered");
-                        //     scrollContainer.scrollTo({
-                        //     top: listItem.offsetTop - scrollContainer.offsetTop - 40,
-
-                        // });
-
-                    }
-
-                    circle.setAttribute("r", 8);
-                    circle.classList.add("hovered");
-                });
-
-                circle.addEventListener("mouseleave", () => {
-                    const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
-                    if (listItem) listItem.classList.remove("hovered");
-
-                    circle.setAttribute("r", 3);
-                    circle.classList.remove("hovered");
-                });
             });
 
-            
-
+            /* ---- HOVER LISTE ---- */
             cityItems.forEach(item => {
                 const ville = item.dataset.ville;
+
                 item.addEventListener("mouseenter", () => {
                     const circle = document.querySelector(`g[data-ville="${ville}"]`);
-                    if (circle) {
-                        circle.setAttribute("r", 8);
-                        circle.classList.add("hovered");
-                    }
+                    if (!circle) return;
+
+                    circle.classList.add("hovered");
                     item.classList.add("hovered");
+
+                    moveToFront(circle);
                 });
 
                 item.addEventListener("mouseleave", () => {
                     const circle = document.querySelector(`g[data-ville="${ville}"]`);
-                    if (circle) {
-                        circle.setAttribute("r", 3);
-                        circle.classList.remove("hovered");
-                    }
+                    if (!circle) return;
+
+                    circle.classList.remove("hovered");
                     item.classList.remove("hovered");
+
+                    restoreCircle(circle);
                 });
             });
-enableMapResetOnBackgroundClick();
+
+            /* ---- RESET CLICK BACKGROUND ---- */
+            svg.addEventListener("click", (e) => {
+
+                if (
+                    e.target.closest("g[data-ville]") ||
+                    e.target.closest(".zone")
+                ) return;
+
+                zoomTo("all");
+            });
+
             applyFilters();
-            
-
         });
-
-
-        const villes = document.querySelectorAll('.ville');
-
-        villes.forEach(ville => {
-            ville.addEventListener('mouseenter', () => {
-                ville.classList.add('hovered');
-                ville.parentNode.appendChild(ville);
-            });
-
-            ville.addEventListener('mouseleave', () => {
-                ville.classList.remove('hovered');
-            });
-        });
-
-        const listItems = document.querySelectorAll(".element");
-
-        listItems.forEach(item => {
-            const villeName = item.dataset.ville;
-
-            item.addEventListener("mouseenter", () => {
-                const villeG = document.querySelector(
-                    `svg g.ville[data-ville="${villeName}"]`
-                );
-
-                if (!villeG) return;
-
-                // 🔥 clé : on remet le <g> en dernier dans SON parent SVG
-                villeG.parentNode.appendChild(villeG);
-
-                villeG.classList.add("hovered");
-                item.classList.add("hovered");
-            });
-
-            item.addEventListener("mouseleave", () => {
-                const villeG = document.querySelector(
-                    `svg g.ville[data-ville="${villeName}"]`
-                );
-
-                villeG?.classList.remove("hovered");
-                item.classList.remove("hovered");
-            });
-        });
-
-        function enableMapResetOnBackgroundClick() {
-                svg.addEventListener("click", (e) => {
-
-                    // Si clic sur un point ou une zone → on ignore
-                    if (
-                        e.target.closest("g[data-ville]") ||
-                        e.target.closest(".zone")
-                    ) {
-                        return;
-                    }
-
-                    zoomTo("all")
-                });
-            }
-
-
-
-
     </script>
+
 </body>
 
 </html>
