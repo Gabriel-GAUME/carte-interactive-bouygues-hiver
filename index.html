@@ -221,6 +221,74 @@
             cursor: pointer;
         }
 
+        .search-wrapper {
+            margin: 00px 114px 20px auto;
+            position: relative;
+            max-width: 700px;
+    width: 500px;
+        }
+
+        .search-input {
+            width: 100%;
+            margin: 0 10px;
+            box-sizing: border-box;
+            padding: 10px 40px;
+            border: 1px solid #E0E0E0;
+            border-radius: 100px;
+            font-size: 15px;
+            font-family: 'BouyguesRead', sans-serif;
+            color: #2D455D;
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease;
+            background: #F8F8F8;
+        }
+
+        .search-input:focus {
+            border-color: #59B6D3;
+            box-shadow: 0 0 0 3px rgba(89, 182, 211, 0.15);
+            background: #fff;
+        }
+
+        .search-input::placeholder { color: #838487; }
+
+        .search-icon {
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #838487;
+        }
+
+        .search-clear {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #838487;
+            padding: 0;
+            display: none;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .search-clear:hover { color: #2D455D; }
+
+        .no-results {
+            text-align: center;
+            padding: 32px 16px;
+            color: #838487;
+            font-size: 15px;
+            display: none;
+            margin: 0 114px 0 auto;
+            position: relative;
+            max-width: 700px;
+    width: 500px;
+        }
+
         @media(max-width:1024px) {
             .map {
                 display: none
@@ -241,6 +309,16 @@
                 margin-right: auto;
                 max-width: 100%
             }
+
+            .search-wrapper {
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .no-results {
+            margin-right: auto;
+            max-width: 100%;
+        }
 
             .container {
                 justify-content: center
@@ -267,6 +345,16 @@
                 </div>
 
             </div>
+            <div class="search-wrapper">
+                <span class="search-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </span>
+                <input type="text" id="searchInput" class="search-input" placeholder="Rechercher une station…" autocomplete="off" />
+                <button class="search-clear" id="searchClear" title="Effacer">✕</button>
+            </div>
+            <p class="no-results" id="noResults">Aucune station trouvée</p>
             <div class="scrollable-list">
                 <ul class="city-list">
                     <li class="element" data-ville="Abondance" data-region="AN">
@@ -2977,37 +3065,12 @@
         const svg = document.getElementById("mapSVG"),
             circles = document.querySelectorAll("g[data-ville]"),
             cityItems = document.querySelectorAll(".city-list li"),
-            scrollContainer = document.querySelector(".scrollable-list"),
-            frontLayer = document.getElementById("svg-front-layer");
+            scrollContainer = document.querySelector(".scrollable-list");
 
         let currentViewBox = [90, 128, 540, 768],
             currentFilter = "all",
-            currentRegion = "all";
-
-        /* ==========================
-           FRONT LAYER (SVG)
-        ========================== */
-
-        function moveToFront(circle) {
-            if (!circle) return;
-
-            if (!circle.__originalParent) {
-                circle.__originalParent = circle.parentNode;
-                circle.__nextSibling = circle.nextSibling;
-            }
-
-            frontLayer.appendChild(circle);
-        }
-
-        function restoreCircle(circle) {
-            if (!circle || !circle.__originalParent) return;
-
-            if (circle.__nextSibling) {
-                circle.__originalParent.insertBefore(circle, circle.__nextSibling);
-            } else {
-                circle.__originalParent.appendChild(circle);
-            }
-        }
+            currentRegion = "all",
+            currentSearch = "";
 
         /* ==========================
            FILTERS
@@ -3025,29 +3088,55 @@
             const circles = document.querySelectorAll("g[data-ville]");
             const listItems = document.querySelectorAll(".city-list li");
             const zones = document.querySelectorAll(".zone");
+            const noResults = document.getElementById("noResults");
 
-            // ALL = pas de points sur la carte, liste visible
+            const normalize = s => s.toLowerCase()
+                .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                .replace(/[-''`]/g, " ");
+
+            const search        = normalize(currentSearch.trim());
+            const searchNoSpace = search.replace(/\s+/g, "");
+
+            const matchVille = ville => {
+                if (!search) return true;
+                const n  = normalize(ville);
+                const ns = n.replace(/\s+/g, "");
+                return n.includes(search) || ns.includes(searchNoSpace);
+            };
+
             if (currentRegion === "all") {
                 circles.forEach(circle => circle.classList.add("hidden"));
-                listItems.forEach(item => item.classList.remove("hidden"));
                 zones.forEach(zone => zone.classList.remove("hidden"));
+
+                let count = 0;
+                listItems.forEach(item => {
+                    const match = matchVille(item.dataset.ville || "");
+                    item.classList.toggle("hidden", !match);
+                    if (match) count++;
+                });
+
+                if (noResults) noResults.style.display = count === 0 ? "block" : "none";
                 return;
             }
 
-            // zones cachées quand zoom
             zones.forEach(zone => zone.classList.add("hidden"));
 
             circles.forEach(circle => {
-                const region = circle.dataset.region;
-                const show = (currentRegion === "all" || region === currentRegion);
-                circle.classList.toggle("hidden", !show);
+                const matchRegion = circle.dataset.region === currentRegion;
+                const matchSearch = matchVille(circle.dataset.ville || "");
+                circle.classList.toggle("hidden", !(matchRegion && matchSearch));
             });
 
+            let count = 0;
             listItems.forEach(item => {
-                const region = item.dataset.region;
-                const show = (currentRegion === "all" || region === currentRegion);
-                item.classList.toggle("hidden", !show);
+                const matchRegion = (currentRegion === "all" || item.dataset.region === currentRegion);
+                const matchSearch = matchVille(item.dataset.ville || "");
+                const visible = matchRegion && matchSearch;
+                item.classList.toggle("hidden", !visible);
+                if (visible) count++;
             });
+
+            if (noResults) noResults.style.display = count === 0 ? "block" : "none";
         }
 
         /* ==========================
@@ -3123,17 +3212,13 @@
                 circle.addEventListener("pointerenter", () => {
                     const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
                     listItem?.classList.add("hovered");
-
                     circle.classList.add("hovered");
-                    moveToFront(circle);
                 });
 
                 circle.addEventListener("pointerleave", () => {
                     const listItem = document.querySelector(`.city-list li[data-ville="${ville}"]`);
                     listItem?.classList.remove("hovered");
-
                     circle.classList.remove("hovered");
-                    restoreCircle(circle);
                 });
 
                 circle.addEventListener("click", () => {
@@ -3154,21 +3239,15 @@
                 item.addEventListener("mouseenter", () => {
                     const circle = document.querySelector(`g[data-ville="${ville}"]`);
                     if (!circle) return;
-
                     circle.classList.add("hovered");
                     item.classList.add("hovered");
-
-                    moveToFront(circle);
                 });
 
                 item.addEventListener("mouseleave", () => {
                     const circle = document.querySelector(`g[data-ville="${ville}"]`);
                     if (!circle) return;
-
                     circle.classList.remove("hovered");
                     item.classList.remove("hovered");
-
-                    restoreCircle(circle);
                 });
             });
 
@@ -3184,6 +3263,24 @@
             });
 
             applyFilters();
+
+            /* ---- SEARCH ---- */
+            const searchInput = document.getElementById("searchInput");
+            const searchClear = document.getElementById("searchClear");
+
+            searchInput.addEventListener("input", () => {
+                currentSearch = searchInput.value;
+                searchClear.style.display = currentSearch.length > 0 ? "block" : "none";
+                applyFilters();
+            });
+
+            searchClear.addEventListener("click", () => {
+                searchInput.value = "";
+                currentSearch = "";
+                searchClear.style.display = "none";
+                searchInput.focus();
+                applyFilters();
+            });
         });
     </script>
 
