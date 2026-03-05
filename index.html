@@ -3236,6 +3236,13 @@
             cityItems.forEach(item => {
                 const ville = item.dataset.ville;
 
+                item.style.cursor = "pointer";
+
+                item.addEventListener("click", () => {
+                    const region = item.dataset.region;
+                    if (region) zoomTo(region);
+                });
+
                 item.addEventListener("mouseenter", () => {
                     const circle = document.querySelector(`g[data-ville="${ville}"]`);
                     if (!circle) return;
